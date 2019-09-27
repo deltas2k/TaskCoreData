@@ -10,10 +10,11 @@ import Foundation
 import CoreData
 
 extension Task {
-    convenience init(name: String, notes: String? = nil, due: Date? = nil, moc:NSManagedObjectContext = CoreDataStack.context) {
+    convenience init(name: String, notes: String? = nil, due: Date? = nil, isComplete: Bool = false, moc:NSManagedObjectContext = CoreDataStack.context) {
         self.init(context: moc)
         self.name = name
         self.notes = notes
-        self.due = due
+        self.due = due as Date?
+        self.isComplete = isComplete
     }
 }
